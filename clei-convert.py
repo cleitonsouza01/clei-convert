@@ -14,6 +14,8 @@ def convert_date_format(date_string):
 
 
 def main(input_file_path):
+    """Main function to convert date format in a CSV file."""
+    print(f"Converting file: {input_file_path}")
     # Construct the output file path by appending '-converted' before the file extension
     file_name, file_extension = os.path.splitext(input_file_path)
     output_file_path = f"{file_name}-converted{file_extension}"
@@ -34,8 +36,18 @@ def main(input_file_path):
 
 
 if __name__ == "__main__":
+    print("### Clei-Convert - version 0.01 ###")
+    print("Author: Cleiton Souza")
+    print("Script to convert date format in a CSV file.\n")
+    print("Starting conversion...\n")
     if len(sys.argv) < 2:
-        print("Usage: cleiton-convert.exe <input_file_path>")
+        print("Usage: clei-convert.exe <input_file_path>")
     else:
         input_file_path = sys.argv[1]
-        main(input_file_path)
+        try:
+            main(input_file_path)
+            print("\nConversion completed.")
+        except FileNotFoundError:
+            print(f"File not found: {input_file_path}")
+        except Exception as e:
+            print(f"An error occurred: {e}")

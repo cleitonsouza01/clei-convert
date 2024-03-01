@@ -10,7 +10,7 @@ a = Analysis(
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
-    excludes=['_ssl'],
+    excludes=[],
     noarchive=False,
 )
 pyz = PYZ(a.pure)
@@ -21,7 +21,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='caffeine-python',
+    name='clei-convert',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
